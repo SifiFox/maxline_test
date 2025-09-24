@@ -1,8 +1,11 @@
+import { Layout, Header, Bonus } from "./components";
+
 function App() {
   return (
-    <div className="min-h-screen">
-      <p className="text-label text-xl">Initial</p>
-    </div>
+    <Layout>
+      <Header />
+      <Bonus />
+    </Layout>
   );
 }
 
