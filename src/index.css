@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+  --font-family-sans: 'Roboto', system-ui, 'Avenir', 'Helvetica', 'Arial', sans-serif;
+  
+  --color-green: #5AB828;
+  --color-green-hover: #4DA41E;
+  --color-purple: #0F0219;
+  --color-placeholder: #777B8B;
+  --color-label: #BBC6F2;
+  --color-error: #F91717;
+  --color-gradient-purple: #714AFFC7;
+  --color-gradient-pink: #AB4AFFC7; 
+  
+  --text-sm: 11px;
+  --text-base: 13px;
+  --text-title: 22px;
+  --text-lg: clamp(24px, 4vw, 48px);
+  --text-xl: clamp(40px, 6vw, 77px);
+  --text-2xl: clamp(140px, 8vw, 275px);
+}
