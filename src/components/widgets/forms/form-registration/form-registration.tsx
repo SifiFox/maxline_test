@@ -121,10 +121,7 @@ const FormRegistrationBase = memo(({ className, title }: FormRegistrationProps) 
     [formData]
   );
 
-  const phoneIcon = useMemo(
-    () => <img src={flagRb} alt="phone" className="w-5 h-5" />,
-    []
-  );
+  const phoneIcon = useMemo(() => <img src={flagRb} alt="phone" className="w-5 h-5" />, []);
 
   const termsLabel = useMemo(
     () => (
@@ -133,22 +130,6 @@ const FormRegistrationBase = memo(({ className, title }: FormRegistrationProps) 
         <span className="underline">«Правила приема ставок»</span> и{' '}
         <span className="underline">Политику конциденциальности» </span>
       </p>
-    ),
-    []
-  );
-
-  const debugInfo = useMemo(
-    () => (
-      <div className="text-xs text-gray-500 mt-2">
-        <p>Для тестирования ошибок используйте:</p>
-        <ul className="list-disc list-inside">
-          <li>Номер с окончанием 1111 - уже существует</li>
-          <li>Номер с окончанием 2222 - неверный номер</li>
-          <li>Номер с окончанием 3333 - ошибка сервера</li>
-          <li>Пароль "error123" - не соответствует требованиям</li>
-          <li>Пароли менее 6 символов - слишком короткий</li>
-        </ul>
-      </div>
     ),
     []
   );
@@ -204,8 +185,6 @@ const FormRegistrationBase = memo(({ className, title }: FormRegistrationProps) 
 
         {errors.general && <p className="text-base text-error text-center">{errors.general}</p>}
       </form>
-
-      {debugInfo}
     </div>
   );
 });
