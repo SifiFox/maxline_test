@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion';
-import flameBlueBack from '../../../assets/images/flames/flame_blue/flame_blue_back.png';
-import flameBlueFront from '../../../assets/images/flames/flame_blue/flame_blue_front.png';
-import innerBlue from '../../../assets/images/flames/flame_blue/inner.png';
-import outerBlue1 from '../../../assets/images/flames/flame_blue/outer_1.png';
-import outerBlue2 from '../../../assets/images/flames/flame_blue/outer_2.png';
+import flameBlueBack from '@assets/images/flames/flame_blue/flame_blue_back.png';
+import flameBlueFront from '@assets/images/flames/flame_blue/flame_blue_front.png';
+import innerBlue from '@assets/images/flames/flame_blue/inner.png';
+import outerBlue1 from '@assets/images/flames/flame_blue/outer_1.png';
+import outerBlue2 from '@assets/images/flames/flame_blue/outer_2.png';
 
 interface FlameBlueProps {
   className?: string;

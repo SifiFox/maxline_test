@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
-import flameGoldBlured from '../../../assets/images/flames/flame_gold/flame_gold_blured.png';
-import flameGoldSharped from '../../../assets/images/flames/flame_gold/flame_gold_sharped.png';
-import innerGold from '../../../assets/images/flames/flame_gold/inner.png';
-import outerGold from '../../../assets/images/flames/flame_gold/outer.png';
+import flameGoldBlured from '@assets/images/flames/flame_gold/flame_gold_blured.png';
+import flameGoldSharped from '@assets/images/flames/flame_gold/flame_gold_sharped.png';
+import innerGold from '@assets/images/flames/flame_gold/inner.png';
+import outerGold from '@assets/images/flames/flame_gold/outer.png';
 
 interface FlameGoldProps {
   className?: string;

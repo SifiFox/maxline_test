@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
-import { BonusShape } from '../shared';
+import { BonusShape } from '@/components';
+import flameLeft from '@assets/images/flame_left.png';
+import flameRight from '@assets/images/flame_right.png';
 
 export const Bonus = () => {
   return (
@@ -8,7 +10,7 @@ export const Bonus = () => {
         <div className="relative">
           <BonusShape />
           <motion.img
-            src="/src/assets/images/flame_left.png"
+            src={flameLeft}
             alt="Flame Left"
             className="absolute inset-0 w-full h-full object-cover scale-120 z-10"
             animate={{
@@ -49,7 +51,7 @@ export const Bonus = () => {
             }}
           />
           <motion.img
-            src="/src/assets/images/flame_right.png"
+            src={flameRight}
             alt="Flame Right"
             className="absolute inset-0 w-full h-full object-cover scale-120 z-10"
             animate={{

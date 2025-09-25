@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
-import flame from '../../../assets/images/flames/flame_triangle/flame.png';
-import triangleBack from '../../../assets/images/flames/flame_triangle/triangle_back.png';
-import triangleFront from '../../../assets/images/flames/flame_triangle/triangle_front.png';
+import flame from '@assets/images/flames/flame_triangle/flame.png';
+import triangleBack from '@assets/images/flames/flame_triangle/triangle_back.png';
+import triangleFront from '@assets/images/flames/flame_triangle/triangle_front.png';
 
 interface FlameTriangleProps {
   className?: string;

@@ -1,5 +1,5 @@
-import { Layout, Header, Bonus, Hero } from './components';
-import { FormLayout } from './components/widgets/form-layout';
+import { Layout, Header, Bonus, Hero } from '@/components/ui';
+import { FormLayout } from '@widgets/form-layout';
 
 function App() {
   return (

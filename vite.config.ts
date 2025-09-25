@@ -1,11 +1,24 @@
 import { defineConfig } from 'vite'
 import tailwindcss from '@tailwindcss/vite'
+import { resolve } from 'path'
 
 export default defineConfig({
   plugins: [
     tailwindcss(),
   ],
   base: process.env.NODE_ENV === 'production' ? '/maxline_test/' : '/',
+  
+  resolve: {
+    alias: {
+      '@': resolve(__dirname, './src'),
+      '@components': resolve(__dirname, './src/components'),
+      '@assets': resolve(__dirname, './src/assets'),
+      '@lib': resolve(__dirname, './src/lib/index.ts'),
+      '@ui': resolve(__dirname, './src/components/ui'),
+      '@shared': resolve(__dirname, './src/components/shared'),
+      '@widgets': resolve(__dirname, './src/components/widgets'),
+    },
+  },
   
   build: {
     minify: 'esbuild',

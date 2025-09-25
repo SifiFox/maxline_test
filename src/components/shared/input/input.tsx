@@ -1,6 +1,6 @@
 import React, { useState, memo, useCallback } from 'react';
-import eyeClosedIcon from '../../../assets/icons/eye_closed.svg';
-import eyeOpenIcon from '../../../assets/icons/eye_open.svg';
+import eyeClosedIcon from '@assets/icons/eye_closed.svg';
+import eyeOpenIcon from '@assets/icons/eye_open.svg';
 
 interface BaseInputProps {
   className?: string;

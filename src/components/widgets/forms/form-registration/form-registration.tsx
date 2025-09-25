@@ -1,13 +1,14 @@
 import { useState, useCallback, memo, useMemo } from 'react';
-import { Button, InputText, InputCheckbox, InputPassword } from '../../../shared';
-import type { FormState, FormErrors } from '../../../../lib';
+import { Button, InputText, InputCheckbox, InputPassword } from '@/components/shared';
+import type { FormState, FormErrors } from '@lib/types';
 import {
   formatPhoneNumber,
   validatePhone,
   validatePassword,
   validateAgreement,
   registerUser,
-} from '../../../../lib';
+} from '@lib';
+import flagRb from '@assets/icons/flag_rb.svg';
 
 interface FormRegistrationProps {
   className?: string;
@@ -121,7 +122,7 @@ const FormRegistrationBase = memo(({ className, title }: FormRegistrationProps) 
   );
 
   const phoneIcon = useMemo(
-    () => <img src="/src/assets/icons/flag_rb.svg" alt="phone" className="w-5 h-5" />,
+    () => <img src={flagRb} alt="phone" className="w-5 h-5" />,
     []
   );
 

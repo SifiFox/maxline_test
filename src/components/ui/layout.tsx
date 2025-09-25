@@ -1,7 +1,7 @@
 import { type ReactNode } from 'react';
 import { motion } from 'framer-motion';
-import bg_main from '../../assets/images/bg_main.png';
-import { FlameGold, FlameBlue, FlameTriangle } from './flames';
+import bg_main from '@assets/images/bg_main.png';
+import { FlameBlue, FlameGold, FlameTriangle } from './flames';
 
 interface LayoutProps {
   children: ReactNode;

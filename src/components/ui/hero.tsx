@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import hero from '../../assets/images/hero_main.png';
+import hero from '@assets/images/hero_main.png';
 
 export const Hero = ({ className }: { className?: string }) => {
   return (

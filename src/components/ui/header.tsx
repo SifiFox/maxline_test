@@ -1,5 +1,5 @@
-import logo from '../../assets/images/logo.svg';
-import { LazyImage } from '../shared/lazy-image';
+import logo from '@assets/images/logo.svg';
+import { LazyImage } from '@shared/lazy-image';
 
 export const Header = () => {
   return (

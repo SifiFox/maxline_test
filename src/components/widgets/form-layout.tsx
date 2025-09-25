@@ -1,4 +1,4 @@
-import { FormRegistration } from './forms/form-registration/form-registration';
+import { FormRegistration } from "./forms";
 
 export const FormLayout = ({ className }: { className?: string }) => {
   return (
