@@ -36,16 +36,16 @@
   --color-label: #bbc6f2;
   --color-error: #f91717;
   --color-gradient-purple: #714affc7;
-  --color-gradient-pink: #ab4affc7;
+  --color-gradient-pink: #AB4AFF;
   --gradient-cyan: linear-gradient(180deg, #00ffd4 0%, #00bafe 100%);
   --color-bg-main: #52098b;
+  --color-bg-light: #f1f3f6;
 
   --text-sm: 11px;
   --text-base: 13px;
   --text-title: 22px;
   --text-lg: clamp(24px, 4vw, 48px);
   --text-xl: clamp(40px, 6vw, 77px);
-  /* --text-2xl: clamp(140px, 14.3vw, 275px); */
   --text-2xl: clamp(140px, 24.3vw, 275px);
 }
 
@@ -57,145 +57,59 @@
   background: var(--gradient-cyan);
 }
 
+.bg-light {
+  background-color: var(--color-bg-light);
+}
+
 .font-mts {
   font-family: var(--font-family-mts);
 }
 
-.bg-main-layout::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url('./assets/images/bg_main.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
 
 .bordered-text {
-  text-shadow: -4px -4px 0px black, 4px 4px 0px black, -4px 4px 0px black, 4px -4px 0px black;
+  filter: progid:DXImageTransform.Microsoft.DropShadow(offX=0, offY=4, color=#000000, positive=true);
+  text-shadow: 0px 2px 0px rgba(0, 0, 0, 1);
+  -webkit-text-shadow: 0px 2px 0px rgba(0, 0, 0, 1);
+  -moz-text-shadow: 0px 2px 0px rgba(0, 0, 0, 1);
 }
 
 .text-shadow-3d {
-  text-shadow: 
-    -2px -2px 0px black, 2px 2px 0px black, -2px 2px 0px black, 2px -2px 0px black,
-    -2px 6px 0px black, -1px 6px 0px black, 0px 6px 0px black, 1px 6px 0px black, 2px 6px 0px black,
-    -2px 7px 0px black, -1px 7px 0px black, 0px 7px 0px black, 1px 7px 0px black, 2px 7px 0px black,
-    -2px 8px 0px black, -1px 8px 0px black, 0px 8px 0px black, 1px 8px 0px black, 2px 8px 0px black,
-    -2px 9px 0px black, -1px 9px 0px black, 0px 9px 0px black, 1px 9px 0px black, 2px 9px 0px black,
-    -2px 10px 0px black, -1px 10px 0px black, 0px 10px 0px black, 1px 10px 0px black, 2px 10px 0px black;
+  filter: progid:DXImageTransform.Microsoft.DropShadow(offX=0, offY=4, color=#000000, positive=true);
+  -webkit-text-stroke: 5px black;
 }
 
-@media (min-width: 768px) {
-  .text-shadow-3d {
-    text-shadow: 
-      -3px -3px 0px black, 3px 3px 0px black, -3px 3px 0px black, 3px -3px 0px black,
-      -3px 8px 0px black, -2px 8px 0px black, -1px 8px 0px black, 0px 8px 0px black, 1px 8px 0px black, 2px 8px 0px black, 3px 8px 0px black,
-      -3px 9px 0px black, -2px 9px 0px black, -1px 9px 0px black, 0px 9px 0px black, 1px 9px 0px black, 2px 9px 0px black, 3px 9px 0px black,
-      -3px 10px 0px black, -2px 10px 0px black, -1px 10px 0px black, 0px 10px 0px black, 1px 10px 0px black, 2px 10px 0px black, 3px 10px 0px black,
-      -3px 11px 0px black, -2px 11px 0px black, -1px 11px 0px black, 0px 11px 0px black, 1px 11px 0px black, 2px 11px 0px black, 3px 11px 0px black,
-      -3px 12px 0px black, -2px 12px 0px black, -1px 12px 0px black, 0px 12px 0px black, 1px 12px 0px black, 2px 12px 0px black, 3px 12px 0px black,
-      -3px 13px 0px black, -2px 13px 0px black, -1px 13px 0px black, 0px 13px 0px black, 1px 13px 0px black, 2px 13px 0px black, 3px 13px 0px black,
-      -3px 14px 0px black, -2px 14px 0px black, -1px 14px 0px black, 0px 14px 0px black, 1px 14px 0px black, 2px 14px 0px black, 3px 14px 0px black,
-      -3px 15px 0px black, -2px 15px 0px black, -1px 15px 0px black, 0px 15px 0px black, 1px 15px 0px black, 2px 15px 0px black, 3px 15px 0px black,
-      -3px 16px 0px black, -2px 16px 0px black, -1px 16px 0px black, 0px 16px 0px black, 1px 16px 0px black, 2px 16px 0px black, 3px 16px 0px black;
-  }
-}
-
-@media (min-width: 1024px) {
-  .text-shadow-3d {
-    text-shadow: 
-      -4px -4px 0px black, 4px 4px 0px black, -4px 4px 0px black, 4px -4px 0px black,
-      -4px 8px 0px black, -3px 8px 0px black, -2px 8px 0px black, -1px 8px 0px black, 0px 8px 0px black, 1px 8px 0px black, 2px 8px 0px black, 3px 8px 0px black, 4px 8px 0px black,
-      -4px 9px 0px black, -3px 9px 0px black, -2px 9px 0px black, -1px 9px 0px black, 0px 9px 0px black, 1px 9px 0px black, 2px 9px 0px black, 3px 9px 0px black, 4px 9px 0px black,
-      -4px 10px 0px black, -3px 10px 0px black, -2px 10px 0px black, -1px 10px 0px black, 0px 10px 0px black, 1px 10px 0px black, 2px 10px 0px black, 3px 10px 0px black, 4px 10px 0px black,
-      -4px 11px 0px black, -3px 11px 0px black, -2px 11px 0px black, -1px 11px 0px black, 0px 11px 0px black, 1px 11px 0px black, 2px 11px 0px black, 3px 11px 0px black, 4px 11px 0px black,
-      -4px 12px 0px black, -3px 12px 0px black, -2px 12px 0px black, -1px 12px 0px black, 0px 12px 0px black, 1px 12px 0px black, 2px 12px 0px black, 3px 12px 0px black, 4px 12px 0px black,
-      -4px 13px 0px black, -3px 13px 0px black, -2px 13px 0px black, -1px 13px 0px black, 0px 13px 0px black, 1px 13px 0px black, 2px 13px 0px black, 3px 13px 0px black, 4px 13px 0px black,
-      -4px 14px 0px black, -3px 14px 0px black, -2px 14px 0px black, -1px 14px 0px black, 0px 14px 0px black, 1px 14px 0px black, 2px 14px 0px black, 3px 14px 0px black, 4px 14px 0px black,
-      -4px 15px 0px black, -3px 15px 0px black, -2px 15px 0px black, -1px 15px 0px black, 0px 15px 0px black, 1px 15px 0px black, 2px 15px 0px black, 3px 15px 0px black, 4px 15px 0px black,
-      -4px 16px 0px black, -3px 16px 0px black, -2px 16px 0px black, -1px 16px 0px black, 0px 16px 0px black, 1px 16px 0px black, 2px 16px 0px black, 3px 16px 0px black, 4px 16px 0px black,
-      -4px 17px 0px black, -3px 17px 0px black, -2px 17px 0px black, -1px 17px 0px black, 0px 17px 0px black, 1px 17px 0px black, 2px 17px 0px black, 3px 17px 0px black, 4px 17px 0px black,
-      -4px 18px 0px black, -3px 18px 0px black, -2px 18px 0px black, -1px 18px 0px black, 0px 18px 0px black, 1px 18px 0px black, 2px 18px 0px black, 3px 18px 0px black, 4px 18px 0px black,
-      -4px 19px 0px black, -3px 19px 0px black, -2px 19px 0px black, -1px 19px 0px black, 0px 19px 0px black, 1px 19px 0px black, 2px 19px 0px black, 3px 19px 0px black, 4px 19px 0px black,
-      -4px 20px 0px black, -3px 20px 0px black, -2px 20px 0px black, -1px 20px 0px black, 0px 20px 0px black, 1px 20px 0px black, 2px 20px 0px black, 3px 20px 0px black, 4px 20px 0px black;
-  }
-}
-
-@media (min-width: 1440px) {
-  .text-shadow-3d {
-    text-shadow: 
-      -4px -4px 0px black, 4px 4px 0px black, -4px 4px 0px black, 4px -4px 0px black,
-      -4px 8px 0px black, -3px 8px 0px black, -2px 8px 0px black, -1px 8px 0px black, 0px 8px 0px black, 1px 8px 0px black, 2px 8px 0px black, 3px 8px 0px black, 4px 8px 0px black,
-      -4px 9px 0px black, -3px 9px 0px black, -2px 9px 0px black, -1px 9px 0px black, 0px 9px 0px black, 1px 9px 0px black, 2px 9px 0px black, 3px 9px 0px black, 4px 9px 0px black,
-      -4px 10px 0px black, -3px 10px 0px black, -2px 10px 0px black, -1px 10px 0px black, 0px 10px 0px black, 1px 10px 0px black, 2px 10px 0px black, 3px 10px 0px black, 4px 10px 0px black,
-      -4px 11px 0px black, -3px 11px 0px black, -2px 11px 0px black, -1px 11px 0px black, 0px 11px 0px black, 1px 11px 0px black, 2px 11px 0px black, 3px 11px 0px black, 4px 11px 0px black,
-      -4px 12px 0px black, -3px 12px 0px black, -2px 12px 0px black, -1px 12px 0px black, 0px 12px 0px black, 1px 12px 0px black, 2px 12px 0px black, 3px 12px 0px black, 4px 12px 0px black,
-      -4px 13px 0px black, -3px 13px 0px black, -2px 13px 0px black, -1px 13px 0px black, 0px 13px 0px black, 1px 13px 0px black, 2px 13px 0px black, 3px 13px 0px black, 4px 13px 0px black,
-      -4px 14px 0px black, -3px 14px 0px black, -2px 14px 0px black, -1px 14px 0px black, 0px 14px 0px black, 1px 14px 0px black, 2px 14px 0px black, 3px 14px 0px black, 4px 14px 0px black,
-      -4px 15px 0px black, -3px 15px 0px black, -2px 15px 0px black, -1px 15px 0px black, 0px 15px 0px black, 1px 15px 0px black, 2px 15px 0px black, 3px 15px 0px black, 4px 15px 0px black,
-      -4px 16px 0px black, -3px 16px 0px black, -2px 16px 0px black, -1px 16px 0px black, 0px 16px 0px black, 1px 16px 0px black, 2px 16px 0px black, 3px 16px 0px black, 4px 16px 0px black,
-      -4px 17px 0px black, -3px 17px 0px black, -2px 17px 0px black, -1px 17px 0px black, 0px 17px 0px black, 1px 17px 0px black, 2px 17px 0px black, 3px 17px 0px black, 4px 17px 0px black,
-      -4px 18px 0px black, -3px 18px 0px black, -2px 18px 0px black, -1px 18px 0px black, 0px 18px 0px black, 1px 18px 0px black, 2px 18px 0px black, 3px 18px 0px black, 4px 18px 0px black,
-      -4px 19px 0px black, -3px 19px 0px black, -2px 19px 0px black, -1px 19px 0px black, 0px 19px 0px black, 1px 19px 0px black, 2px 19px 0px black, 3px 19px 0px black, 4px 19px 0px black,
-      -4px 20px 0px black, -3px 20px 0px black, -2px 20px 0px black, -1px 20px 0px black, 0px 20px 0px black, 1px 20px 0px black, 2px 20px 0px black, 3px 20px 0px black, 4px 20px 0px black,
-      -4px 21px 0px black, -3px 21px 0px black, -2px 21px 0px black, -1px 21px 0px black, 0px 21px 0px black, 1px 21px 0px black, 2px 21px 0px black, 3px 21px 0px black, 4px 21px 0px black,
-      -4px 22px 0px black, -3px 22px 0px black, -2px 22px 0px black, -1px 22px 0px black, 0px 22px 0px black, 1px 22px 0px black, 2px 22px 0px black, 3px 22px 0px black, 4px 22px 0px black,
-      -4px 23px 0px black, -3px 23px 0px black, -2px 23px 0px black, -1px 23px 0px black, 0px 23px 0px black, 1px 23px 0px black, 2px 23px 0px black, 3px 23px 0px black, 4px 23px 0px black,
-      -4px 24px 0px black, -3px 24px 0px black, -2px 24px 0px black, -1px 24px 0px black, 0px 24px 0px black, 1px 24px 0px black, 2px 24px 0px black, 3px 24px 0px black, 4px 24px 0px black,
-      -4px 25px 0px black, -3px 25px 0px black, -2px 25px 0px black, -1px 25px 0px black, 0px 25px 0px black, 1px 25px 0px black, 2px 25px 0px black, 3px 25px 0px black, 4px 25px 0px black,
-      -4px 26px 0px black, -3px 26px 0px black, -2px 26px 0px black, -1px 26px 0px black, 0px 26px 0px black, 1px 26px 0px black, 2px 26px 0px black, 3px 26px 0px black, 4px 26px 0px black,
-      -4px 27px 0px black, -3px 27px 0px black, -2px 27px 0px black, -1px 27px 0px black, 0px 27px 0px black, 1px 27px 0px black, 2px 27px 0px black, 3px 27px 0px black, 4px 27px 0px black,
-      -4px 28px 0px black, -3px 28px 0px black, -2px 28px 0px black, -1px 28px 0px black, 0px 28px 0px black, 1px 28px 0px black, 2px 28px 0px black, 3px 28px 0px black, 4px 28px 0px black;
-  }
-}
-
-.text-shadow-3d-lg {
-  text-shadow: -6px -6px 0px black, 6px 6px 0px black, -6px 6px 0px black, 6px -6px 0px black;
-  position: relative;
-}
-
-.text-shadow-3d-lg::after {
+.text-shadow-3d::after {
   content: attr(data-text);
   position: absolute;
-  top: 12px;
   left: 0;
+  bottom: 10%;
   z-index: -1;
   color: black;
-  width: 100%;
-  height: 25px;
-  background: black;
-}
-
-.text-shadow-3d-xl {
-  text-shadow: -10px -10px 0px black, 10px 10px 0px black, -10px 10px 0px black, 10px -10px 0px black;
-  position: relative;
-}
-
-.text-shadow-3d-xl::after {
-  content: attr(data-text);
-  position: absolute;
-  top: 20px;
-  left: 0;
-  z-index: -1;
-  color: black;
-  width: 100%;
-  height: 30px;
-  background: black;
+  filter: progid:DXImageTransform.Microsoft.DropShadow(offX=0, offY=4, color=#000000, positive=true);
+  -webkit-text-stroke: 5px black;
 }
 
 @media (min-width: 1024px) {
   .bordered-text {
-    text-shadow: -6px -6px 0px black, 6px 6px 0px black, -6px 6px 0px black,
-      6px -6px 0px black;
+    filter: progid:DXImageTransform.Microsoft.DropShadow(offX=0, offY=4, color=#000000, positive=true);
+    text-shadow: 0px 5px 0px rgba(0, 0, 0, 1);
+    -webkit-text-shadow: 0px 5px 0px rgba(0, 0, 0, 1);
+    -moz-text-shadow: 0px 5px 0px rgba(0, 0, 0, 1);
   }
-}
 
-@media (min-width: 1480px) {
-  .bordered-text {
-    text-shadow: -10px -10px 0px black, 10px 10px 0px black, -10px 10px 0px black,
-      10px -10px 0px black;
+  /* Custom checkbox styles */
+  input[type='checkbox'] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+
+  input[type='checkbox']:checked {
+    background-color: #5ab828 !important;
+    border-color: #5ab828 !important;
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M13.485 2.343a.5.5 0 0 1 .072.707L6 12l-3.857-3.857a.5.5 0 1 1 .707-.707L6 10.586l6.778-6.779a.5.5 0 0 1 .707-.072z'/%3e%3c/svg%3e");
+    background-size: 100% 100%;
+    background-position: 50%;
+    background-repeat: no-repeat;
   }
 }
