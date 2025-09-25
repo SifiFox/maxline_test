@@ -140,7 +140,7 @@ export function Layout({ children }: LayoutProps) {
       ></motion.div>
       <FlameGold className="hidden 2xl:block absolute right-165 -bottom-23 hidden" />
       <FlameTriangle className="-left-75 bottom-45 scale-50 lg:scale-100 lg:-left-67 lg:bottom-10 absolute z-0" />
-      <FlameBlue className="absolute -right-30 top-97 2xl:right-115 2xl:top-25 scale-70 z-50 lg:z-0 md:scale-150 lg:scale-125" />
+      <FlameBlue className="absolute -right-30 bottom-65 2xl:right-115 2xl:top-25 scale-70 z-50 md:z-0 md:scale-150 lg:scale-125" />
       <main className="relative z-10 flex flex-col h-full overflow-hidden">{children}</main>
     </div>
   );
