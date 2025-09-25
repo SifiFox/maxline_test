@@ -4,7 +4,7 @@
 
 ## 🚀 Демо
 
-Посмотрите живую версию: [https://maxline-test.vercel.app](https://sififox.github.io/maxline_test/)
+Посмотрите живую версию: [deploy](https://sififox.github.io/maxline_test/)
 
 ## 📋 Технические требования - Чеклист
 
