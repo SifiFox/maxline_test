@@ -9,13 +9,13 @@ interface BonusShapeProps {
 }
 
 export function BonusShape({
-  gradientFrom = "#00FFD4",
-  gradientTo = "#00BAFE", 
-  strokeColor = "#000",
+  gradientFrom = '#00FFD4',
+  gradientTo = '#00BAFE',
+  strokeColor = '#000',
   strokeWidth = 8.288,
-  shadowColor = "#000000",
+  shadowColor = '#000000',
   shadowOffset = 73,
-  className = ""
+  className = '',
 }: BonusShapeProps) {
   return (
     <svg
@@ -43,10 +43,10 @@ export function BonusShape({
           filterUnits="userSpaceOnUse"
           colorInterpolationFilters="sRGB"
         >
-          <feDropShadow 
-            dx="0" 
-            dy={shadowOffset} 
-            floodColor={shadowColor} 
+          <feDropShadow
+            dx="0"
+            dy={shadowOffset}
+            floodColor={shadowColor}
             floodOpacity="1"
             stdDeviation="0"
           />
