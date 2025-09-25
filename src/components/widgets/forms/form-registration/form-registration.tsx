@@ -1,16 +1,16 @@
 import { useState, useCallback, memo, useMemo } from 'react';
 import { Button, InputText, InputCheckbox, InputPassword } from '../../../shared';
 import type { FormState, FormErrors } from '../../../../lib';
-import { 
+import {
   formatPhoneNumber,
   validatePhone,
   validatePassword,
   validateAgreement,
-  registerUser
+  registerUser,
 } from '../../../../lib';
 
 interface FormRegistrationProps {
-  className?: string; 
+  className?: string;
   title?: string;
 }
 
@@ -28,107 +28,129 @@ const FormRegistrationBase = memo(({ className, title }: FormRegistrationProps) 
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handlePhoneChange = useCallback((value: string) => {
-    const formatted = formatPhoneNumber(value);
-    setFormData((prev: FormState) => ({ ...prev, phone: formatted }));
-    
-    if (errors.phone) {
-      setErrors((prev: FormErrors) => ({ ...prev, phone: undefined }));
-    }
-  }, [errors.phone]);
+  const handlePhoneChange = useCallback(
+    (value: string) => {
+      const formatted = formatPhoneNumber(value);
+      setFormData((prev: FormState) => ({ ...prev, phone: formatted }));
 
-  const handlePasswordChange = useCallback((value: string) => {
-    setFormData((prev: FormState) => ({ ...prev, password: value }));
-    
-    if (errors.password) {
-      setErrors((prev: FormErrors) => ({ ...prev, password: undefined }));
-    }
-  }, [errors.password]);
+      if (errors.phone) {
+        setErrors((prev: FormErrors) => ({ ...prev, phone: undefined }));
+      }
+    },
+    [errors.phone]
+  );
 
-  const handleAgreeToTermsChange = useCallback((checked: boolean) => {
-    setFormData((prev: FormState) => ({ ...prev, agreeToTerms: checked }));
-    
-    if (errors.agreeToTerms) {
-      setErrors((prev: FormErrors) => ({ ...prev, agreeToTerms: undefined }));
-    }
-  }, [errors.agreeToTerms]);
+  const handlePasswordChange = useCallback(
+    (value: string) => {
+      setFormData((prev: FormState) => ({ ...prev, password: value }));
+
+      if (errors.password) {
+        setErrors((prev: FormErrors) => ({ ...prev, password: undefined }));
+      }
+    },
+    [errors.password]
+  );
+
+  const handleAgreeToTermsChange = useCallback(
+    (checked: boolean) => {
+      setFormData((prev: FormState) => ({ ...prev, agreeToTerms: checked }));
+
+      if (errors.agreeToTerms) {
+        setErrors((prev: FormErrors) => ({ ...prev, agreeToTerms: undefined }));
+      }
+    },
+    [errors.agreeToTerms]
+  );
 
   const handleAgreeToBonusTermsChange = useCallback((checked: boolean) => {
     setFormData((prev: FormState) => ({ ...prev, agreeToBonusTerms: checked }));
   }, []);
 
-  const handleSubmit = useCallback(async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    const newErrors: FormErrors = {};
-    
-    const phoneError = validatePhone(formData.phone);
-    if (phoneError) newErrors.phone = phoneError;
-    
-    const passwordError = validatePassword(formData.password);
-    if (passwordError) newErrors.password = passwordError;
-    
-    const agreeError = validateAgreement(formData.agreeToTerms, 'Необходимо согласие с правилами');
-    if (agreeError) newErrors.agreeToTerms = agreeError;
-    
-    setErrors(newErrors);
-    
-    if (Object.keys(newErrors).length > 0) {
-      return;
-    }
-    
-    setIsSubmitting(true);
-    setErrors({ general: undefined });
-    
-    try {
-      const result = await registerUser(formData);
-      
-      if (result.success) {
-        alert('Регистрация успешно завершена!');
-        setFormData({
-          firstName: '',
-          lastName: '',
-          email: '',
-          phone: '',
-          password: '',
-          agreeToTerms: false,
-          agreeToBonusTerms: false,
-        });
-        setErrors({});
-      } else {
-        setErrors({ general: result.error });
+  const handleSubmit = useCallback(
+    async (e: React.FormEvent) => {
+      e.preventDefault();
+
+      const newErrors: FormErrors = {};
+
+      const phoneError = validatePhone(formData.phone);
+      if (phoneError) newErrors.phone = phoneError;
+
+      const passwordError = validatePassword(formData.password);
+      if (passwordError) newErrors.password = passwordError;
+
+      const agreeError = validateAgreement(
+        formData.agreeToTerms,
+        'Необходимо согласие с правилами'
+      );
+      if (agreeError) newErrors.agreeToTerms = agreeError;
+
+      setErrors(newErrors);
+
+      if (Object.keys(newErrors).length > 0) {
+        return;
       }
-    } catch (error) {
-      setErrors({ general: 'Произошла неожиданная ошибка' });
-    } finally {
-      setIsSubmitting(false);
-    }
-  }, [formData]);
 
-  const phoneIcon = useMemo(() => (
-    <img src="/src/assets/icons/flag_rb.svg" alt="phone" className="w-5 h-5" />
-  ), []);
+      setIsSubmitting(true);
+      setErrors({ general: undefined });
 
-  const termsLabel = useMemo(() => (
-    <p>
-      Мне больше 21 года. <br /> Я согласен и принимаю{' '}
-      <span className="underline">«Правила приема ставок»</span> и{' '}
-      <span className="underline">Политику конциденциальности» </span>
-    </p>
-  ), []);
+      try {
+        const result = await registerUser(formData);
 
-  const debugInfo = useMemo(() => (
-    <div className="text-xs text-gray-500 mt-2">
-      <p>Для тестирования ошибок используйте:</p>
-      <ul className="list-disc list-inside">
-        <li>Номер с окончанием 1111 - уже существует</li>
-        <li>Номер с окончанием 2222 - неверный номер</li>
-        <li>Номер с окончанием 3333 - ошибка сервера</li>
-        <li>Пароль "error123" - не соответствует требованиям</li>
-        <li>Пароли менее 6 символов - слишком короткий</li>
-      </ul>
-    </div>
-  ), []);
+        if (result.success) {
+          alert('Регистрация успешно завершена!');
+          setFormData({
+            firstName: '',
+            lastName: '',
+            email: '',
+            phone: '',
+            password: '',
+            agreeToTerms: false,
+            agreeToBonusTerms: false,
+          });
+          setErrors({});
+        } else {
+          setErrors({ general: result.error });
+        }
+      } catch {
+        setErrors({ general: 'Произошла неожиданная ошибка' });
+      } finally {
+        setIsSubmitting(false);
+      }
+    },
+    [formData]
+  );
+
+  const phoneIcon = useMemo(
+    () => <img src="/src/assets/icons/flag_rb.svg" alt="phone" className="w-5 h-5" />,
+    []
+  );
+
+  const termsLabel = useMemo(
+    () => (
+      <p>
+        Мне больше 21 года. <br /> Я согласен и принимаю{' '}
+        <span className="underline">«Правила приема ставок»</span> и{' '}
+        <span className="underline">Политику конциденциальности» </span>
+      </p>
+    ),
+    []
+  );
+
+  const debugInfo = useMemo(
+    () => (
+      <div className="text-xs text-gray-500 mt-2">
+        <p>Для тестирования ошибок используйте:</p>
+        <ul className="list-disc list-inside">
+          <li>Номер с окончанием 1111 - уже существует</li>
+          <li>Номер с окончанием 2222 - неверный номер</li>
+          <li>Номер с окончанием 3333 - ошибка сервера</li>
+          <li>Пароль "error123" - не соответствует требованиям</li>
+          <li>Пароли менее 6 символов - слишком короткий</li>
+        </ul>
+      </div>
+    ),
+    []
+  );
 
   return (
     <div className={className}>
@@ -170,8 +192,8 @@ const FormRegistrationBase = memo(({ className, title }: FormRegistrationProps) 
           />
         </div>
 
-        <Button 
-          className="w-full text-white text-base uppercase font-medium" 
+        <Button
+          className="w-full text-white text-base uppercase font-medium"
           type="submit"
           loading={isSubmitting}
           disabled={isSubmitting}
@@ -179,11 +201,7 @@ const FormRegistrationBase = memo(({ className, title }: FormRegistrationProps) 
           {isSubmitting ? 'Регистрация...' : 'Регистрация'}
         </Button>
 
-        {errors.general && (
-          <p className="text-base text-error text-center">
-            {errors.general}
-          </p>
-        )}
+        {errors.general && <p className="text-base text-error text-center">{errors.general}</p>}
       </form>
 
       {debugInfo}

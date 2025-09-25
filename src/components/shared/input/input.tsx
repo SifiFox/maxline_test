@@ -1,4 +1,3 @@
-
 import React, { useState, memo, useCallback } from 'react';
 import eyeClosedIcon from '../../../assets/icons/eye_closed.svg';
 import eyeOpenIcon from '../../../assets/icons/eye_open.svg';
@@ -28,13 +27,33 @@ type InputProps = TextInputProps | CheckboxInputProps;
 const InputBase = memo((props: InputProps) => {
   const { className, label, error } = props;
 
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+
+  const handleInputChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      if (props.type !== 'checkbox') {
+        props.onChange?.(e.target.value);
+      }
+    },
+    [props]
+  );
+
+  const handleTogglePassword = useCallback(() => {
+    setIsPasswordVisible(prev => !prev);
+  }, []);
+
+  const handleCheckboxChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      if (props.type === 'checkbox') {
+        props.onChange?.(e.target.checked);
+      }
+    },
+    [props]
+  );
+
   if (props.type === 'checkbox') {
-    const { checked, onChange } = props;
-    
-    const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-      onChange?.(e.target.checked);
-    }, [onChange]);
-    
+    const { checked } = props;
+
     return (
       <div className="flex flex-col gap-1">
         <div className="flex items-center gap-2">
@@ -42,8 +61,10 @@ const InputBase = memo((props: InputProps) => {
             <input
               type="checkbox"
               checked={checked}
-              onChange={handleChange}
-              className={`size-[18px] rounded-sm border-2 border-gray-300 bg-white appearance-none focus:outline-none transition-colors checked:bg-purple-600 checked:border-purple-600 ${className || ''}`}
+              onChange={handleCheckboxChange}
+              className={`size-[18px] rounded-sm border-2 border-gray-300 bg-white appearance-none focus:outline-none transition-colors checked:bg-purple-600 checked:border-purple-600 ${
+                className || ''
+              }`}
             />
             {checked && (
               <svg
@@ -60,42 +81,30 @@ const InputBase = memo((props: InputProps) => {
             )}
           </div>
           {label && (
-            <label className="font-medium text-label cursor-pointer text-sm">
-              {label}
-            </label>
+            <label className="font-medium text-label cursor-pointer text-sm">{label}</label>
           )}
         </div>
-        {error && (
-          <span className="text-base text-error">{error}</span>
-        )}
+        {error && <span className="text-base text-error">{error}</span>}
       </div>
     );
   }
 
-  const { type = 'text', value, onChange, placeholder, leftIcon } = props;
-  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-  
+  const { type = 'text', value, placeholder, leftIcon } = props;
   const inputType = type === 'password' && isPasswordVisible ? 'text' : type;
   const showPasswordToggle = type === 'password';
-  
-  const handleInputChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    onChange?.(e.target.value);
-  }, [onChange]);
-  
-  const handleTogglePassword = useCallback(() => {
-    setIsPasswordVisible(prev => !prev);
-  }, []);
-  
+
   return (
     <div className="flex flex-col gap-1">
-      {label && (
-        <label className="text-base text-label">
-          {label}
-        </label>
-      )}
+      {label && <label className="text-base text-label">{label}</label>}
       <div className="relative group focus-within:ring-2 focus-within:ring-purple-600 rounded-md">
         {leftIcon && (
-          <div className={`absolute inset-y-0 left-0 flex items-center px-3 pointer-events-none bg-white rounded-l-md ${error ? 'border border-error border-r-transparent group-focus-within:border-transparent' : ''}`}>
+          <div
+            className={`absolute inset-y-0 left-0 flex items-center px-3 pointer-events-none bg-white rounded-l-md ${
+              error
+                ? 'border border-error border-r-transparent group-focus-within:border-transparent'
+                : ''
+            }`}
+          >
             {leftIcon}
           </div>
         )}
@@ -104,7 +113,11 @@ const InputBase = memo((props: InputProps) => {
           value={value}
           placeholder={placeholder}
           onChange={handleInputChange}
-          className={`px-3 py-2 ${leftIcon ? 'pl-13' : ''} ${showPasswordToggle ? 'pr-10' : ''} rounded-md placeholder-gray-400 focus:outline-none focus:ring-0 focus:border-transparent w-full ${error ? 'border-error' : 'border-gray-300'} border ${className || ''}`}
+          className={`px-3 py-2 ${leftIcon ? 'pl-13' : ''} ${
+            showPasswordToggle ? 'pr-10' : ''
+          } rounded-md placeholder-gray-400 focus:outline-none focus:ring-0 focus:border-transparent w-full ${
+            error ? 'border-error' : 'border-gray-300'
+          } border ${className || ''}`}
         />
         {showPasswordToggle && (
           <button
@@ -120,9 +133,7 @@ const InputBase = memo((props: InputProps) => {
           </button>
         )}
       </div>
-      {error && (
-        <span className="text-base text-error">{error}</span>
-      )}
+      {error && <span className="text-base text-error">{error}</span>}
     </div>
   );
 });

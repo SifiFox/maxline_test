@@ -36,7 +36,7 @@
   --color-label: #bbc6f2;
   --color-error: #f91717;
   --color-gradient-purple: #714affc7;
-  --color-gradient-pink: #AB4AFF;
+  --color-gradient-pink: #ab4aff;
   --gradient-cyan: linear-gradient(180deg, #00ffd4 0%, #00bafe 100%);
   --color-bg-main: #52098b;
   --color-bg-light: #f1f3f6;
@@ -64,7 +64,6 @@
 .font-mts {
   font-family: var(--font-family-mts);
 }
-
 
 .bordered-text {
   filter: progid:DXImageTransform.Microsoft.DropShadow(offX=0, offY=4, color=#000000, positive=true);

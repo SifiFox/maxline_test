@@ -11,9 +11,9 @@ export const FlameTriangle = ({ className }: FlameTriangleProps) => {
   return (
     <div className={`size-150 ${className}`}>
       <div className="relative w-full h-full">
-        <motion.img 
-          src={triangleBack} 
-          alt="triangle back" 
+        <motion.img
+          src={triangleBack}
+          alt="triangle back"
           className="absolute inset-0 w-full h-full object-contain scale-120 z-10"
           animate={{
             scale: [1.2, 1.25, 1.15, 1.2],
@@ -23,8 +23,8 @@ export const FlameTriangle = ({ className }: FlameTriangleProps) => {
               'brightness(1.2) hue-rotate(10deg) saturate(1.3)',
               'brightness(1.1) hue-rotate(-5deg) saturate(1.1)',
               'brightness(1.3) hue-rotate(15deg) saturate(1.4)',
-              'brightness(1) hue-rotate(0deg) saturate(1)'
-            ]
+              'brightness(1) hue-rotate(0deg) saturate(1)',
+            ],
           }}
           transition={{
             scale: {
@@ -41,13 +41,13 @@ export const FlameTriangle = ({ className }: FlameTriangleProps) => {
               duration: 2.2,
               repeat: Infinity,
               ease: 'easeInOut',
-            }
+            },
           }}
         />
-        
-        <motion.img 
-          src={flame} 
-          alt="flame" 
+
+        <motion.img
+          src={flame}
+          alt="flame"
           className="absolute inset-0 w-full h-full object-contain scale-80 z-30"
           animate={{
             rotate: [0, 360],
@@ -66,8 +66,8 @@ export const FlameTriangle = ({ className }: FlameTriangleProps) => {
               'brightness(0.02) hue-rotate(10deg) saturate(0.1)',
               'brightness(0.05) hue-rotate(0deg) saturate(0.2)',
               'brightness(0.02) hue-rotate(5deg) saturate(0.1)',
-              'brightness(1) hue-rotate(0deg) saturate(1)'
-            ]
+              'brightness(1) hue-rotate(0deg) saturate(1)',
+            ],
           }}
           transition={{
             rotate: {
@@ -89,13 +89,13 @@ export const FlameTriangle = ({ className }: FlameTriangleProps) => {
               duration: 4,
               repeat: Infinity,
               ease: 'linear',
-            }
+            },
           }}
         />
-        
-        <motion.img 
-          src={triangleFront} 
-          alt="triangle front" 
+
+        <motion.img
+          src={triangleFront}
+          alt="triangle front"
           className="absolute inset-0 w-full h-full object-contain scale-120 z-20"
           animate={{
             scale: [1.2, 1.22, 1.18, 1.24, 1.2],
@@ -105,8 +105,8 @@ export const FlameTriangle = ({ className }: FlameTriangleProps) => {
               'brightness(1.15) hue-rotate(-8deg) saturate(1.2)',
               'brightness(1.25) hue-rotate(12deg) saturate(1.35)',
               'brightness(1.05) hue-rotate(-3deg) saturate(1.05)',
-              'brightness(1) hue-rotate(0deg) saturate(1)'
-            ]
+              'brightness(1) hue-rotate(0deg) saturate(1)',
+            ],
           }}
           transition={{
             scale: {
@@ -123,7 +123,7 @@ export const FlameTriangle = ({ className }: FlameTriangleProps) => {
               duration: 2.6,
               repeat: Infinity,
               ease: 'easeInOut',
-            }
+            },
           }}
         />
       </div>

@@ -6,14 +6,13 @@ export const validatePassword = (password: string): string | undefined => {
   if (password.length === 0) {
     return 'Введите пароль';
   }
-  
+
   if (password.length < 6) {
     return 'Пароль должен содержать минимум 6 символов';
   }
-  
+
   return undefined;
 };
-
 
 /**
  * @param value - значение для валидации
@@ -24,7 +23,7 @@ export const validateRequired = (value: string, fieldName: string): string | und
   if (!value || value.trim().length === 0) {
     return `Поле "${fieldName}" обязательно для заполнения`;
   }
-  
+
   return undefined;
 };
 
@@ -33,10 +32,13 @@ export const validateRequired = (value: string, fieldName: string): string | und
  * @param message - сообщение об ошибке
  * @returns строка с ошибкой или undefined если валиден
  */
-export const validateAgreement = (isChecked: boolean, message: string = 'Необходимо согласие'): string | undefined => {
+export const validateAgreement = (
+  isChecked: boolean,
+  message: string = 'Необходимо согласие'
+): string | undefined => {
   if (!isChecked) {
     return message;
   }
-  
+
   return undefined;
 };

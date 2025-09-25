@@ -22,30 +22,30 @@ export const Bonus = () => {
                 'brightness(1.3) hue-rotate(12deg) saturate(1.4) blur(1.5px)',
                 'brightness(0.95) hue-rotate(-3deg) saturate(0.95) blur(0px)',
                 'brightness(1.15) hue-rotate(6deg) saturate(1.2) blur(1px)',
-                'brightness(1) hue-rotate(0deg) saturate(1) blur(0px)'
-              ]
+                'brightness(1) hue-rotate(0deg) saturate(1) blur(0px)',
+              ],
             }}
             transition={{
               opacity: {
                 duration: 2.5,
                 repeat: Infinity,
-                ease: 'easeInOut'
+                ease: 'easeInOut',
               },
               x: {
                 duration: 3.8,
                 repeat: Infinity,
-                ease: 'easeInOut'
+                ease: 'easeInOut',
               },
               y: {
                 duration: 4.2,
                 repeat: Infinity,
-                ease: 'easeInOut'
+                ease: 'easeInOut',
               },
               filter: {
                 duration: 2.1,
                 repeat: Infinity,
-                ease: 'easeInOut'
-              }
+                ease: 'easeInOut',
+              },
             }}
           />
           <motion.img
@@ -63,41 +63,46 @@ export const Bonus = () => {
                 'brightness(1.08) hue-rotate(-2deg) saturate(1.08) blur(0px)',
                 'brightness(1.3) hue-rotate(12deg) saturate(1.3) blur(1.8px)',
                 'brightness(1.15) hue-rotate(5deg) saturate(1.15) blur(0.8px)',
-                'brightness(1) hue-rotate(0deg) saturate(1) blur(0px)'
-              ]
+                'brightness(1) hue-rotate(0deg) saturate(1) blur(0px)',
+              ],
             }}
             transition={{
               opacity: {
                 duration: 3.1,
                 repeat: Infinity,
-                ease: 'easeInOut'
+                ease: 'easeInOut',
               },
               x: {
                 duration: 4.5,
                 repeat: Infinity,
-                ease: 'easeInOut'
+                ease: 'easeInOut',
               },
               y: {
                 duration: 3.7,
                 repeat: Infinity,
-                ease: 'easeInOut'
+                ease: 'easeInOut',
               },
               filter: {
                 duration: 2.8,
                 repeat: Infinity,
-                ease: 'easeInOut'
-              }
+                ease: 'easeInOut',
+              },
             }}
           />
 
           <div className="absolute bottom-[35%] sm:bottom-[70%] md:bottom-[50%] lg:bottom-[45%] xl:bottom-[42%] 2xl:bottom-[35%] left-1/2 -translate-x-1/2 z-20">
-            <span className="relative text-white text-2xl font-bold uppercase leading-none text-shadow-3d z-15" data-text="200">
+            <span
+              className="relative text-white text-2xl font-bold uppercase leading-none text-shadow-3d z-15"
+              data-text="200"
+            >
               200
             </span>
           </div>
 
           <div className="absolute -bottom-1 sm:bottom-[12%] md:bottom-0 lg:-bottom-0 2xl:-bottom-2 left-1/2 -translate-x-1/2 z-30">
-            <span className="text-xl lg:text-[50px] 2xl:text-[70px] font-bold text-blue-primary whitespace-nowrap">ФРИСПИНОВ</span>
+            <span className="text-xl lg:text-[50px] 2xl:text-[70px] font-bold text-blue-primary whitespace-nowrap">
+              ФРИСПИНОВ
+            </span>
           </div>
         </div>
       </div>

@@ -26,8 +26,8 @@ export function LazyImage({
 
     if ('IntersectionObserver' in window) {
       const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
+        entries => {
+          entries.forEach(entry => {
             if (entry.isIntersecting) {
               const img = new Image();
               img.onload = () => {
